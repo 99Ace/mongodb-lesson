@@ -1,3 +1,8 @@
+// goto connect in mongodb > clusters > and select mongo shell
+//connect to mongoshell by copy the following line 3:
+mongo "mongodb+srv://cluster0-hocdb.mongodb.net/<dbname>" --username <username>
+password: XXXXXXXX
+
 // SET COLL = DATABASE.COLLECTION TRACK
 coll = db.players
 
@@ -42,3 +47,8 @@ coll.find({}).limit(2).pretty()
 coll.find({}).sort({first_name: 1})
 // or DESCENDING
 coll.find({}).sort({first_name: -1})
+
+// search for case-sensitive
+coll.find({ position : {$regex: 'def' }}).pretty()
+// search for case-insensitive
+coll.find({ position : {$regex: 'def', $options:'i' }}).pretty()
